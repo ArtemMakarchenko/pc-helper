@@ -2,12 +2,34 @@
 <html lang="ru">
 
 <head>
-    @@include('blocks/_head.html')
+    <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="css/style.min.css" type="text/css">
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
     <title>PC Helper | Ремонт и обслуживание компьютеров</title>
 </head>
 
 <body>
-    @@include('blocks/_header.html')
+    <header class="header">
+    <div class="header-main">
+        <div class="header-main__logo">
+            <a href="index.html"><img src="./img/logo.png" alt="Логотип"></a>
+        </div>
+        <div class="header-main__info">
+            <p>+38 (095) 58-49-310</p>
+            <button>Заказать звонок</button>
+        </div>
+    </div>
+    <nav class="header-nav">
+        <ul class="header-nav__ul">
+            <li><a href="index.html">Главная</a></li>
+            <li><a href="#services">Услуги</a></li>
+            <li><a href="#cost">Цены</a></li>
+            <li><a href="#contacts">Контакты</a></li>
+            <li><a href="#about-us">О нас</a></li>
+        </ul>
+    </nav>
+</header>
     <main>
         <article class="first-screen">
             <div class="first-screen__text">
@@ -196,7 +218,22 @@
             </section>
         </article>
     </main>
-    @@include('blocks/_footer.html')
+    <footer class="footer">
+    <div class="footer__logo"><img src="./img/logo.png" alt=""></div>
+    <div class="footer__nav">
+        <ul>
+            <li><a href="index.html">Главная</a></li>
+            <li><a href="#services">Услуги</a></li>
+            <li><a href="#cost">Цены</a></li>
+            <li><a href="#contacts">Контакты</a></li>
+            <li><a href="#about-us">О нас</a></li>
+        </ul>
+    </div>
+    <div class="footer__counter">
+        <p>Счетчики</p>
+    </div>
+</footer>
+<script src="js/script.min.js"></script>
 </body>
 
 </html>

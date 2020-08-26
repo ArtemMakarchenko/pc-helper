@@ -1,5 +1,389 @@
 @import "reset-styles";
 @import "mixins";
 @import "fonts";
+@import "variables";
+a,p,h1,h2,h3,h4,h5,h6,li,button,input{
+    font-family: $FONT;
+}
+.header {
+    width: 100%;
+    height: 100px;
+    display: flex;
+    flex-flow: column;
+}
+.header-main {
+    width: 100%;
+    height: 50%;
+    display: flex;
+    background-color: $BLUE_DARK;
+    padding: 10px 20px 10px 20px;
+    justify-content: space-between;
+    &__logo img {
+        height: 100%;
+    }
+}
+.header-main__info{
+    display: flex;
+    flex-direction: row;
+    width: 30%;
+    justify-content: space-evenly;
+    p{
+        color: #fff;
+        align-self: center;
+        justify-self: flex-end;
+        font-size: 1.5rem;
+        font-family: 'Roboto', sans-serif;
+    }
+    button {
+        background-color: $BLUE;
+        border-radius: 0.2rem;
+        padding: 5px;
+        font-family: 'Roboto', sans-serif;
+        color: #fff;
+        font-size: 1.2rem;
+        align-self: flex-end;
+        transition: ease-out 0.6s 0s;
+    }
+    button:hover {
+        color: $BLUE;
+        background-color: #fff;
+    }
+}
+.header-nav {
+    width: 100%;
+    height: 50%;
+    &__ul {
+        height: 100%;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        align-items: center;
+        li{
+            // border: solid 1px red;
+            width: 100%;
+            height: 80%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-left: solid 1px $BLUE_DARK;
+            cursor: pointer;
+            transition: ease-out 0.6s 0s;  
+        }
+        li:first-child{
+            border-left: none;
+        }
+        a{  
+            font-size: 1.3rem;
+            color: $FONT_COLOR_LIGHT_GRAY;
+        }
+        li:hover{
+            background-color:$BLUE;
+            
+            a{  
+                color: #fff;
+            }
+        }
+            
+    }
+}
+.first-screen {
+    width: 100%;
+    height: 500px;
+    background-image: url("../img/first-screen-bg.jpg");
+    background-repeat: no-repeat;
+    background-position: center right;
+    background-size: contain;
+    &__text {
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        width: 100%;
+        height: 100%;
+        padding: 10%;
+        background: linear-gradient(to right, #ffffff, #ffffffb0);
+        h1{
+            font-size: 4.5rem;
+            margin-bottom: 4rem;
+        }
+        p{
+            font-size: 2.5rem;
+            margin: 2rem;
+        }
+    }
+}
+.advantages {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+.advantages-header {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    h2{
+        margin: 3rem 0px;
+        font-size: 2.8rem;
+    }
+}
+.advantages-main {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    margin-bottom: 4rem;
+}
+.advantages-main-item {
+    width: 30%;
+    display: flex;
+    align-items: center;
+    margin-top: 4rem;
+    flex-direction: column;
+    &__img {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        margin-bottom: 2rem;
+    }
+    &__text {
+        text-align: center;
+        font-size: 1.7rem;
+        width: 70%;
+        line-height: 2.5rem;
+    }
+}
+.services {
+    width: 100%;
+    height: auto;
+    background-image: url(../img/services-bg.jpg.png);
+    background-position: top left;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-color: #0f4d92;
+    display: flex;
+    justify-content: flex-end;
+}
+.services-text{
+    width: 60%;
+}
+.services-header {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    font-size: 3rem;
+    color: #fff;
+    margin: 3rem 0rem;
+}
+.services-main {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-around;
+    margin-bottom: 1rem;
+}
+.services-main-item {
+    color: #fff;
+    width: 40%;
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+    line-height: 2rem;
+}
+.cost {
+    width: 100%;
+    padding-bottom: 2rem;
+    display: flex;
+    flex-direction: column;
+}
+.cost-header {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    color: $FONT_COLOR_DARK_GRAY;
+    font-size: 3rem;
+    margin: 4rem 0rem;
+}
+.cost-main {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+.cost-main-item {
+    width: 80%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+.cost-main-item:first-child{
+    font-size: 2rem;
+    padding-bottom: 1rem;
+    border-bottom: solid 2px $FONT_COLOR_DARK_GRAY;
+}
+.about-us {
+    width: 100%;
+    height: 600px;
+    display: flex;
+    flex-direction: column;
+}
+.about-us-header {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    h2{
+        font-size: 3rem;
+        margin: 3rem 0rem;
+        color: $FONT_COLOR_DARK_GRAY;
+    }
+}
+.about-us-main {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    img{
+        width: 30%;
+    }
+    p{
+        width: 45%;
+        font-size: 1.5rem;
+        line-height: 2rem;
+        color: $FONT_COLOR_DARK_GRAY;
+    }
+}
+.coll {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    background-color: $BLUE_BRIGHT;
+}
+.coll-form {
+    width: 70%;
+    display: flex;
+    justify-content: space-around;
+    margin: 3rem 0rem;
+    input{
+        width: 30%;
+        height: 3rem;
+        padding-left: 1rem;
+        font-size: 1.5rem;
+        color: $FONT_COLOR_LIGHT_GRAY;
+        cursor: text;
+    }
+    button{
+        width: 30%;
+        height: 3rem;
+        border: solid 0.3rem #fff;
+        background-color: $BLUE_BRIGHT;
+        color: #fff;
+        font-size: 1.5rem;
+        border-radius: 0.5rem;
+        &:hover{
+            background-color: #fff;
+            color: $BLUE_BRIGHT;
+            transition: ease-out 0.6s 0s;
+        }
+    }  
+}
+.contacts {
+    width: 100%;
+    margin-top: 5rem;
+    height: 550px;
+}
+.contacts-map {
+    width: 35%;
+    position: relative;
+    left: 5rem;
+    top: 0rem;
+    z-index: 10;
+    iframe{
+        width: 100%;
+    }
+}
+.conyacts-info {
+    width: 100%;
+    position: relative;
+    left: 0;
+    top: -300px;
+    z-index: 5;
+    background-color: $BLUE_LIGHT;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    padding-bottom: 10rem;
+    &__header {
+        h2{
+            font-size: 3rem;
+            padding: 3rem;
+            color:#fff;
+            margin-left: 30%;
+        }
+    }
+    &__main {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        p{
+            font-size: 1.5rem;
+            padding: 1.5rem;
+            color:#fff;
+            margin-left: 16%;
+        }
+    }
+}
+.contacts-social-networks {
+    width: 40%;
+    height: 7rem;
+    background-color:$BLUE_BRIGHT;
+    position: relative;
+    z-index: 15;
+    left: 60%;
+    top: -25rem;
+    padding: 2rem;
+    display: flex;
+    flex-flow: row;
+    img{
+        height: 100%;
+        margin-right: 1.5rem;
+    }
+}
+.footer {
+    width: 100%;
+    background-color: $BLUE_DARK;
+    display: flex;
+    justify-content: space-around;
+    padding: 2rem 0rem;
+    &__logo {
+        width: 30%;
+        display: flex;
+        justify-content: center;
+        img{
+            width: 40%;
+            height: fit-content;
+        }
+    }
+    &__nav {
+        width: 30%;
+        display: flex;
+        justify-content: center;
+        li{
+            margin-bottom: 1rem;
+            a{
+            font-size: 1.5rem;
+            color: #fff;
+            }
+        }
+    }
+    &__counter {
+        width: 30%;
+        display: flex;
+        justify-content: center;
+        font-size: 1.5rem;
+        color: #fff;
+    }
+}
+
+
+
+
+
 
 
