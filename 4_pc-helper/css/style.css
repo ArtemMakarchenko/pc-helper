@@ -118,11 +118,16 @@ input {
   -webkit-box-direction: normal;
       -ms-flex-flow: column;
           flex-flow: column;
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  z-index: 40;
 }
 
 .header-main {
   width: 100%;
   height: 50%;
+  z-index: 35;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -167,8 +172,8 @@ input {
   font-family: 'Roboto', sans-serif;
   color: #fff;
   font-size: 1.2rem;
-  -ms-flex-item-align: end;
-      align-self: flex-end;
+  -ms-flex-item-align: center;
+      align-self: center;
   -webkit-transition: ease-out 0.6s 0s;
   -o-transition: ease-out 0.6s 0s;
   transition: ease-out 0.6s 0s;
@@ -182,6 +187,7 @@ input {
 .header-nav {
   width: 100%;
   height: 50%;
+  background-color: #fff;
 }
 
 .header-nav__ul {
@@ -234,6 +240,93 @@ input {
 
 .header-nav__ul li:hover a {
   color: #fff;
+}
+
+.header-nav.header-nav-active {
+  top: 40px;
+  -webkit-transition: top 0.6s ease-in-out;
+  -o-transition: top 0.6s ease-in-out;
+  transition: top 0.6s ease-in-out;
+}
+
+.menu-icon-wrapper {
+  width: 25px;
+  height: 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  display: none;
+}
+
+.menu-icon {
+  position: relative;
+  width: 25px;
+  height: 3px;
+  background-color: #fff;
+}
+
+.menu-icon::before {
+  position: absolute;
+  left: 0;
+  top: -7px;
+  content: '';
+  width: 25px;
+  height: 3px;
+  background-color: #fff;
+  -webkit-transition: top 0.2s linear 0.2s, -webkit-transform 0.2s ease-in;
+  transition: top 0.2s linear 0.2s, -webkit-transform 0.2s ease-in;
+  -o-transition: transform 0.2s ease-in, top 0.2s linear 0.2s;
+  transition: transform 0.2s ease-in, top 0.2s linear 0.2s;
+  transition: transform 0.2s ease-in, top 0.2s linear 0.2s, -webkit-transform 0.2s ease-in;
+}
+
+.menu-icon::after {
+  position: absolute;
+  left: 0;
+  top: 7px;
+  content: '';
+  width: 25px;
+  height: 3px;
+  background-color: #fff;
+  -webkit-transition: top 0.2s linear 0.2s, -webkit-transform 0.2s ease-in;
+  transition: top 0.2s linear 0.2s, -webkit-transform 0.2s ease-in;
+  -o-transition: transform 0.2s ease-in, top 0.2s linear 0.2s;
+  transition: transform 0.2s ease-in, top 0.2s linear 0.2s;
+  transition: transform 0.2s ease-in, top 0.2s linear 0.2s, -webkit-transform 0.2s ease-in;
+}
+
+.menu-icon.menu-icon-active {
+  background-color: transparent;
+}
+
+.menu-icon.menu-icon-active::before {
+  -webkit-transform: rotate(45deg);
+      -ms-transform: rotate(45deg);
+          transform: rotate(45deg);
+  top: 0;
+  -webkit-transition: top 0.2s linear, -webkit-transform 0.2s ease-in 0.2s;
+  transition: top 0.2s linear, -webkit-transform 0.2s ease-in 0.2s;
+  -o-transition: top 0.2s linear, transform 0.2s ease-in 0.2s;
+  transition: top 0.2s linear, transform 0.2s ease-in 0.2s;
+  transition: top 0.2s linear, transform 0.2s ease-in 0.2s, -webkit-transform 0.2s ease-in 0.2s;
+}
+
+.menu-icon.menu-icon-active::after {
+  -webkit-transform: rotate(-45deg);
+      -ms-transform: rotate(-45deg);
+          transform: rotate(-45deg);
+  top: 0;
+  -webkit-transition: top 0.2s linear, -webkit-transform 0.2s ease-in 0.2s;
+  transition: top 0.2s linear, -webkit-transform 0.2s ease-in 0.2s;
+  -o-transition: top 0.2s linear, transform 0.2s ease-in 0.2s;
+  transition: top 0.2s linear, transform 0.2s ease-in 0.2s;
+  transition: top 0.2s linear, transform 0.2s ease-in 0.2s, -webkit-transform 0.2s ease-in 0.2s;
 }
 
 .first-screen {
@@ -460,7 +553,7 @@ input {
 
 .about-us {
   width: 100%;
-  height: 600px;
+  padding-bottom: 3rem;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -498,6 +591,9 @@ input {
   -webkit-box-pack: space-evenly;
       -ms-flex-pack: space-evenly;
           justify-content: space-evenly;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
 }
 
 .about-us-main img {
@@ -641,11 +737,16 @@ input {
   -webkit-box-direction: normal;
       -ms-flex-flow: row;
           flex-flow: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 .contacts-social-networks img {
-  height: 100%;
-  margin-right: 1.5rem;
+  width: 80%;
 }
 
 .footer {
@@ -656,11 +757,15 @@ input {
   display: flex;
   -ms-flex-pack: distribute;
       justify-content: space-around;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
   padding: 2rem 0rem;
 }
 
 .footer__logo {
   width: 30%;
+  display: inline-block;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -671,9 +776,6 @@ input {
 
 .footer__logo img {
   width: 40%;
-  height: -webkit-fit-content;
-  height: -moz-fit-content;
-  height: fit-content;
 }
 
 .footer__nav {
@@ -705,6 +807,379 @@ input {
           justify-content: center;
   font-size: 1.5rem;
   color: #fff;
+}
+
+@media (max-width: 1199px) {
+  .header-main__info p {
+    font-size: 1.2rem;
+  }
+
+  .header-main__info button {
+    font-size: 1rem;
+  }
+
+  .header-nav__ul a {
+    font-size: 1.2rem;
+  }
+
+  .first-screen__text h1 {
+    font-size: 3.5rem;
+  }
+
+  .first-screen__text p {
+    font-size: 1.7rem;
+  }
+
+  .advantages-main-item__text {
+    font-size: 1.3rem;
+  }
+
+  .services-main-item {
+    font-size: 1.3rem;
+  }
+
+  .about-us-main p {
+    font-size: 1.2rem;
+  }
+
+  .coll-form input {
+    font-size: 1.2rem;
+    height: 2.5rem;
+  }
+
+  .coll-form button {
+    font-size: 1.2rem;
+    height: 2.5rem;
+  }
+}
+
+@media (max-width: 991px) {
+  .header-main__info p {
+    font-size: 0.8rem;
+  }
+
+  .header-main__info button {
+    font-size: 0.8rem;
+  }
+
+  .header-nav__ul a {
+    font-size: 1rem;
+  }
+
+  .advantages-header h2 {
+    font-size: 2rem;
+  }
+
+  .services-header {
+    font-size: 2rem;
+  }
+
+  .services-main-item {
+    font-size: 1rem;
+  }
+
+  .cost-header {
+    font-size: 2rem;
+  }
+
+  .cost-main-item {
+    font-size: 1.2rem;
+  }
+
+  .cost-main-item:first-child {
+    font-size: 1.6rem;
+  }
+
+  .about-us-header h2 {
+    font-size: 2rem;
+  }
+
+  .about-us-main p {
+    font-size: 1rem;
+  }
+
+  .contacts {
+    margin-top: 10rem;
+    height: 450px;
+  }
+
+  .contacts-map iframe {
+    height: 250px;
+  }
+
+  .contacts-map {
+    top: -5rem;
+  }
+
+  .conyacts-info__header h2 {
+    font-size: 2rem;
+    margin-left: 25%;
+  }
+
+  .conyacts-info__main p {
+    margin-left: 20%;
+    font-size: 1.2rem;
+  }
+
+  .footer__nav li a {
+    font-size: 1.2rem;
+  }
+
+  .footer__counter {
+    font-size: 1.2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .header {
+    height: 80px;
+  }
+
+  .header-main__info {
+    width: 45%;
+  }
+
+  .first-screen__text h1 {
+    font-size: 2.5rem;
+  }
+
+  .first-screen__text p {
+    font-size: 1.2rem;
+  }
+
+  .advantages-main-item {
+    width: 40%;
+  }
+
+  .services {
+    background-size: cover;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+
+  .services-text {
+    width: 90%;
+  }
+
+  .services-main-item {
+    font-size: 1.2rem;
+  }
+
+  .about-us-main {
+    -ms-flex-flow: wrap;
+        flex-flow: wrap;
+  }
+
+  .about-us-main img {
+    width: 60%;
+    margin-bottom: 3rem;
+  }
+
+  .about-us-main p {
+    width: 80%;
+  }
+
+  .coll-form input {
+    font-size: 0.8rem;
+  }
+
+  .coll-form button {
+    font-size: 0.8rem;
+  }
+
+  .contacts {
+    height: 320px;
+  }
+
+  .conyacts-info__main p {
+    margin-left: 25%;
+  }
+
+  .conyacts-info {
+    padding-bottom: 4rem;
+  }
+
+  .contacts-social-networks {
+    height: 5rem;
+    padding: 1rem;
+  }
+
+  .footer__nav li a {
+    font-size: 1rem;
+  }
+
+  .footer__counter {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 481px) {
+  .header {
+    height: 40px;
+  }
+
+  .header-main__logo {
+    width: 30%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+
+  .header-main__logo a {
+    display: inline-block;
+    width: 80%;
+  }
+
+  .header-main__info button {
+    display: none;
+  }
+
+  .header-main__info {
+    -webkit-box-pack: end;
+        -ms-flex-pack: end;
+            justify-content: flex-end;
+  }
+
+  .header-main__info {
+    width: 30%;
+    -webkit-box-pack: end;
+        -ms-flex-pack: end;
+            justify-content: flex-end;
+  }
+
+  .header-main {
+    height: 100%;
+  }
+
+  .header-nav {
+    position: absolute;
+    height: 50vh;
+    z-index: 30;
+    background-color: rgba(255, 255, 255, 0.952);
+    top: -50vh;
+    left: 0px;
+    -webkit-transition: top 0.6s ease-in-out;
+    -o-transition: top 0.6s ease-in-out;
+    transition: top 0.6s ease-in-out;
+  }
+
+  .header-nav ul {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+
+  .header-nav li {
+    border-left: none;
+    height: 30px;
+  }
+
+  .menu-icon-wrapper {
+    display: block;
+    padding-top: 10px;
+    width: 30%;
+    -webkit-box-pack: start;
+        -ms-flex-pack: start;
+            justify-content: flex-start;
+  }
+
+  .first-screen__text {
+    padding: 5%;
+  }
+
+  .first-screen {
+    height: 400px;
+  }
+
+  .advantages-main-item {
+    width: 90%;
+  }
+
+  .services {
+    background-position: top right;
+  }
+
+  .services-main-item {
+    width: 90%;
+  }
+
+  .about-us-main img {
+    width: 80%;
+  }
+
+  .about-us-main p {
+    font-size: 1.2rem;
+  }
+
+  .coll-form input {
+    width: 100%;
+    margin-bottom: 2rem;
+    font-size: 1.1rem;
+  }
+
+  .coll-form button {
+    width: 100%;
+    font-size: 1.1rem;
+  }
+
+  .coll-form {
+    width: 80%;
+    -ms-flex-flow: wrap;
+        flex-flow: wrap;
+  }
+
+  .contacts {
+    margin-top: 5rem;
+    height: 550px;
+  }
+
+  .contacts-map {
+    width: 80%;
+    -ms-flex-flow: wrap;
+        flex-flow: wrap;
+    left: 10%;
+    top: 250px;
+  }
+
+  .conyacts-info__header h2 {
+    margin-left: 0px;
+    padding: 1.5rem;
+  }
+
+  .conyacts-info__main p {
+    margin-left: 0px;
+  }
+
+  .contacts-social-networks {
+    width: 80%;
+    left: 10%;
+  }
+
+  .footer {
+    -ms-flex-flow: wrap;
+        flex-flow: wrap;
+  }
+
+  .footer__logo {
+    width: 80%;
+    margin-bottom: 2rem;
+  }
+
+  .footer__nav {
+    width: 80%;
+  }
+
+  .footer__counter {
+    width: 80%;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {

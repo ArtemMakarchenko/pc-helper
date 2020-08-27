@@ -10,48 +10,99 @@ a,p,h1,h2,h3,h4,h5,h6,li,button,input{
     height: 100px;
     display: flex;
     flex-flow: column;
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    z-index: 40;
+    @media (max-width: 768px) {
+        height: 80px;
+    }
+    @media (max-width: 481px) {
+        height: 40px;
+    }
 }
 .header-main {
     width: 100%;
     height: 50%;
+    z-index: 35;
     display: flex;
     background-color: $BLUE_DARK;
     padding: 10px 20px 10px 20px;
     justify-content: space-between;
+    &__logo{
+        @media (max-width: 481px) {
+            width: 30%;
+            display: flex;
+            justify-content: center;
+            a{
+                display: inline-block;
+                width: 80%;
+            }
+        }
+    }
     &__logo img {
         height: 100%;
     }
-}
-.header-main__info{
-    display: flex;
-    flex-direction: row;
-    width: 30%;
-    justify-content: space-evenly;
-    p{
-        color: #fff;
-        align-self: center;
-        justify-self: flex-end;
-        font-size: 1.5rem;
-        font-family: 'Roboto', sans-serif;
+    &__info{
+        display: flex;
+        flex-direction: row;
+        width: 30%;
+        justify-content: space-evenly;
+        p{
+            color: #fff;
+            align-self: center;
+            justify-self: flex-end;
+            font-size: 1.5rem;
+            font-family: 'Roboto', sans-serif;
+            @media (max-width: 1199px) {
+                font-size: 1.2rem;
+            }
+            @media (max-width: 991px) {
+                font-size: 0.8rem;
+            }
+        }
+        button {
+            background-color: $BLUE;
+            border-radius: 0.2rem;
+            padding: 5px;
+            font-family: 'Roboto', sans-serif;
+            color: #fff;
+            font-size: 1.2rem;
+            align-self: center;
+            transition: ease-out 0.6s 0s;
+            @media (max-width: 1199px) {
+                font-size: 1rem;
+            }
+            @media (max-width: 991px) {
+                font-size: 0.8rem;
+            }
+            @media (max-width: 481px) {
+                display: none;
+            }
+        }
+        button:hover {
+            color: $BLUE;
+            background-color: #fff;
+        }
+        @media (max-width: 768px) {
+            width: 45%;
+        }
+        @media (max-width: 481px) {
+            justify-content: flex-end;
+        }
+        @media (max-width: 481px) {
+            width: 30%;
+            justify-content: flex-end;
+        }
     }
-    button {
-        background-color: $BLUE;
-        border-radius: 0.2rem;
-        padding: 5px;
-        font-family: 'Roboto', sans-serif;
-        color: #fff;
-        font-size: 1.2rem;
-        align-self: flex-end;
-        transition: ease-out 0.6s 0s;
-    }
-    button:hover {
-        color: $BLUE;
-        background-color: #fff;
+    @media (max-width: 481px) {
+        height: 100%;
     }
 }
 .header-nav {
     width: 100%;
     height: 50%;
+    background-color: #fff;
     &__ul {
         height: 100%;
         display: flex;
@@ -59,7 +110,6 @@ a,p,h1,h2,h3,h4,h5,h6,li,button,input{
         justify-content: space-around;
         align-items: center;
         li{
-            // border: solid 1px red;
             width: 100%;
             height: 80%;
             display: flex;
@@ -67,7 +117,7 @@ a,p,h1,h2,h3,h4,h5,h6,li,button,input{
             align-items: center;
             border-left: solid 1px $BLUE_DARK;
             cursor: pointer;
-            transition: ease-out 0.6s 0s;  
+            transition: ease-out 0.6s 0s; 
         }
         li:first-child{
             border-left: none;
@@ -75,6 +125,12 @@ a,p,h1,h2,h3,h4,h5,h6,li,button,input{
         a{  
             font-size: 1.3rem;
             color: $FONT_COLOR_LIGHT_GRAY;
+            @media (max-width: 1199px) {
+                font-size: 1.2rem;
+            }
+            @media (max-width: 991px) {
+                font-size: 1rem;
+            }
         }
         li:hover{
             background-color:$BLUE;
@@ -82,9 +138,85 @@ a,p,h1,h2,h3,h4,h5,h6,li,button,input{
             a{  
                 color: #fff;
             }
-        }
-            
+        }      
     }
+    @media (max-width: 481px) {
+        position: absolute;
+        height: 50vh;
+        z-index: 30;
+        background-color: rgba(255, 255, 255, 0.952);
+        top: -50vh;
+        left: 0px;
+        transition: top 0.6s ease-in-out;
+        ul {
+            display: flex;
+            flex-direction: column;
+        }
+        li{
+            border-left: none;
+            height: 30px;
+        }
+    }
+}
+.header-nav.header-nav-active{
+    top: 40px;
+    transition: top 0.6s ease-in-out;
+}
+.menu-icon-wrapper {
+    width: 25px;
+    height: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    display: none;
+    @media (max-width: 481px) {
+        display: block;
+        padding-top: 10px;
+        width: 30%;
+        justify-content: flex-start;
+    }
+}
+
+.menu-icon {
+    position: relative;
+    width: 25px;
+    height: 3px;
+    background-color: #fff;
+}
+
+.menu-icon::before {
+    position: absolute;
+    left: 0;
+    top: -7px;
+    content: '';
+    width: 25px;
+    height: 3px;
+    background-color: #fff;
+    transition: transform 0.2s ease-in, top 0.2s linear 0.2s;
+}
+
+.menu-icon::after {
+    position: absolute;
+    left: 0;
+    top: 7px;
+    content: '';
+    width: 25px;
+    height: 3px;
+    background-color: #fff;
+    transition: transform 0.2s ease-in, top 0.2s linear 0.2s;
+}
+.menu-icon.menu-icon-active {
+    background-color: transparent;
+}
+.menu-icon.menu-icon-active::before {
+    transform: rotate(45deg);
+    top: 0;
+    transition: top 0.2s linear, transform 0.2s ease-in 0.2s;
+}
+.menu-icon.menu-icon-active::after {
+    transform: rotate(-45deg);
+    top: 0;
+    transition: top 0.2s linear, transform 0.2s ease-in 0.2s;
 }
 .first-screen {
     width: 100%;
@@ -104,11 +236,29 @@ a,p,h1,h2,h3,h4,h5,h6,li,button,input{
         h1{
             font-size: 4.5rem;
             margin-bottom: 4rem;
+            @media (max-width: 1199px) {
+                font-size: 3.5rem;
+            }
+            @media (max-width: 768px) {
+                font-size: 2.5rem;
+            }
         }
         p{
             font-size: 2.5rem;
             margin: 2rem;
+            @media (max-width: 1199px) {
+                font-size: 1.7rem;
+            }
+            @media (max-width: 768px) {
+                font-size: 1.2rem;
+            }
         }
+        @media (max-width: 481px) {
+            padding: 5%;
+        }
+    }
+    @media (max-width: 481px) {
+        height: 400px;
     }
 }
 .advantages {
@@ -123,6 +273,9 @@ a,p,h1,h2,h3,h4,h5,h6,li,button,input{
     h2{
         margin: 3rem 0px;
         font-size: 2.8rem;
+        @media (max-width: 991px) {
+            font-size: 2rem;
+        }
     }
 }
 .advantages-main {
@@ -148,6 +301,15 @@ a,p,h1,h2,h3,h4,h5,h6,li,button,input{
         font-size: 1.7rem;
         width: 70%;
         line-height: 2.5rem;
+        @media (max-width: 1199px) {
+            font-size: 1.3rem;
+        }
+    }
+    @media (max-width: 768px) {
+        width: 40%;
+    }
+    @media (max-width: 481px) {
+        width: 90%;
     }
 }
 .services {
@@ -160,9 +322,19 @@ a,p,h1,h2,h3,h4,h5,h6,li,button,input{
     background-color: #0f4d92;
     display: flex;
     justify-content: flex-end;
+    @media (max-width: 768px) {
+        background-size: cover;
+        justify-content: center;
+    }
+    @media (max-width: 481px) {  
+        background-position: top right;
+    }
 }
 .services-text{
     width: 60%;
+    @media (max-width: 768px) {
+        width: 90%;
+    }
 }
 .services-header {
     width: 100%;
@@ -171,6 +343,9 @@ a,p,h1,h2,h3,h4,h5,h6,li,button,input{
     font-size: 3rem;
     color: #fff;
     margin: 3rem 0rem;
+    @media (max-width: 991px) {
+        font-size: 2rem;
+    }
 }
 .services-main {
     display: flex;
@@ -184,6 +359,18 @@ a,p,h1,h2,h3,h4,h5,h6,li,button,input{
     font-size: 1.5rem;
     margin-bottom: 2rem;
     line-height: 2rem;
+    @media (max-width: 1199px) {
+        font-size: 1.3rem;
+    }
+    @media (max-width: 991px) {
+        font-size: 1rem;
+    }
+    @media (max-width: 768px) {
+        font-size: 1.2rem;
+    }
+    @media (max-width: 481px) {
+        width: 90%;
+    }
 }
 .cost {
     width: 100%;
@@ -198,6 +385,9 @@ a,p,h1,h2,h3,h4,h5,h6,li,button,input{
     color: $FONT_COLOR_DARK_GRAY;
     font-size: 3rem;
     margin: 4rem 0rem;
+    @media (max-width: 991px) {
+        font-size: 2rem;
+    }
 }
 .cost-main {
     display: flex;
@@ -211,15 +401,21 @@ a,p,h1,h2,h3,h4,h5,h6,li,button,input{
     justify-content: space-between;
     font-size: 1.5rem;
     margin-bottom: 1.5rem;
+    @media (max-width: 991px) {
+        font-size: 1.2rem;
+    }
 }
 .cost-main-item:first-child{
     font-size: 2rem;
     padding-bottom: 1rem;
     border-bottom: solid 2px $FONT_COLOR_DARK_GRAY;
+    @media (max-width: 991px) {
+        font-size: 1.6rem;
+    }
 }
 .about-us {
     width: 100%;
-    height: 600px;
+    padding-bottom: 3rem;
     display: flex;
     flex-direction: column;
 }
@@ -231,6 +427,9 @@ a,p,h1,h2,h3,h4,h5,h6,li,button,input{
         font-size: 3rem;
         margin: 3rem 0rem;
         color: $FONT_COLOR_DARK_GRAY;
+        @media (max-width: 991px) {
+            font-size: 2rem;
+        }
     }
 }
 .about-us-main {
@@ -238,14 +437,37 @@ a,p,h1,h2,h3,h4,h5,h6,li,button,input{
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
+    align-items: flex-start;
+    @media (max-width: 768px) {
+        flex-flow: wrap;
+    }
     img{
         width: 30%;
+        @media (max-width: 768px) {
+            width: 60%;
+            margin-bottom: 3rem;
+        }
+        @media (max-width: 481px) {  
+            width: 80%;
+        }
     }
     p{
         width: 45%;
         font-size: 1.5rem;
         line-height: 2rem;
         color: $FONT_COLOR_DARK_GRAY;
+        @media (max-width: 1199px) {
+            font-size: 1.2rem;
+        }
+        @media (max-width: 991px) {
+            font-size: 1rem;
+        }
+        @media (max-width: 768px) {
+            width: 80%;
+        }
+        @media (max-width: 481px) {  
+            font-size: 1.2rem;
+        }
     }
 }
 .coll {
@@ -266,6 +488,18 @@ a,p,h1,h2,h3,h4,h5,h6,li,button,input{
         font-size: 1.5rem;
         color: $FONT_COLOR_LIGHT_GRAY;
         cursor: text;
+        @media (max-width: 1199px) {
+            font-size: 1.2rem;
+            height: 2.5rem;
+        }
+        @media (max-width: 768px) {
+            font-size: 0.8rem;
+        }
+        @media (max-width: 481px) {  
+            width: 100%;
+            margin-bottom: 2rem;
+            font-size: 1.1rem;
+        }
     }
     button{
         width: 30%;
@@ -280,12 +514,38 @@ a,p,h1,h2,h3,h4,h5,h6,li,button,input{
             color: $BLUE_BRIGHT;
             transition: ease-out 0.6s 0s;
         }
-    }  
+        @media (max-width: 1199px) {
+            font-size: 1.2rem;
+            height: 2.5rem;
+        }
+        @media (max-width: 768px) {
+            font-size: 0.8rem;
+        }
+        @media (max-width: 481px) {  
+            width: 100%;
+            font-size: 1.1rem;
+        }
+    }
+    @media (max-width: 481px) {  
+        width: 80%;
+        flex-flow: wrap;
+    } 
 }
 .contacts {
     width: 100%;
     margin-top: 5rem;
     height: 550px;
+    @media (max-width: 991px) {
+        margin-top: 10rem;
+        height: 450px;
+    }
+    @media (max-width: 768px) {
+        height: 320px;
+    }
+    @media (max-width: 481px) {
+        margin-top: 5rem;
+        height: 550px;
+    }
 }
 .contacts-map {
     width: 35%;
@@ -295,7 +555,20 @@ a,p,h1,h2,h3,h4,h5,h6,li,button,input{
     z-index: 10;
     iframe{
         width: 100%;
+        @media (max-width: 991px) {
+            height: 250px;
+        }
     }
+    @media (max-width: 991px) {
+        top: -5rem;
+    }
+    @media (max-width: 481px) {  
+        width: 80%;
+        flex-flow: wrap;
+        left: 10%;
+        top: 250px;
+    }
+    
 }
 .conyacts-info {
     width: 100%;
@@ -314,6 +587,14 @@ a,p,h1,h2,h3,h4,h5,h6,li,button,input{
             padding: 3rem;
             color:#fff;
             margin-left: 30%;
+            @media (max-width: 991px) {
+                font-size: 2rem;
+                margin-left: 25%;
+            }
+            @media (max-width: 481px) {
+                margin-left: 0px;
+                padding: 1.5rem;
+            }
         }
     }
     &__main {
@@ -326,7 +607,20 @@ a,p,h1,h2,h3,h4,h5,h6,li,button,input{
             padding: 1.5rem;
             color:#fff;
             margin-left: 16%;
+            @media (max-width: 991px) {
+                margin-left: 20%;
+                font-size: 1.2rem;
+            }
+            @media (max-width: 768px) {
+                margin-left: 25%;
+            }
+            @media (max-width: 481px) {
+                margin-left: 0px;
+            }
         }
+    }
+    @media (max-width: 768px) {
+        padding-bottom: 4rem;
     }
 }
 .contacts-social-networks {
@@ -340,9 +634,18 @@ a,p,h1,h2,h3,h4,h5,h6,li,button,input{
     padding: 2rem;
     display: flex;
     flex-flow: row;
+    justify-content: space-between;
+    align-items: center;
     img{
-        height: 100%;
-        margin-right: 1.5rem;
+        width: 80%;
+    }
+    @media (max-width: 768px) {
+        height: 5rem;
+        padding: 1rem;
+    }
+    @media (max-width: 481px) {
+        width: 80%;
+        left: 10%;
     }
 }
 .footer {
@@ -350,14 +653,22 @@ a,p,h1,h2,h3,h4,h5,h6,li,button,input{
     background-color: $BLUE_DARK;
     display: flex;
     justify-content: space-around;
+    align-items: flex-start;
     padding: 2rem 0rem;
+    @media (max-width: 481px) {
+        flex-flow: wrap;
+    }
     &__logo {
         width: 30%;
+        display: inline-block;
         display: flex;
         justify-content: center;
         img{
-            width: 40%;
-            height: fit-content;
+            width: 40%;     
+        }
+        @media (max-width: 481px) {
+            width: 80%;
+            margin-bottom: 2rem;
         }
     }
     &__nav {
@@ -369,8 +680,17 @@ a,p,h1,h2,h3,h4,h5,h6,li,button,input{
             a{
             font-size: 1.5rem;
             color: #fff;
+            @media (max-width: 991px) {
+                font-size: 1.2rem;
+                }
+            @media (max-width: 768px) {
+                font-size: 1rem;
+                }
             }
         }
+        @media (max-width: 481px) {
+            width: 80%;
+        }  
     }
     &__counter {
         width: 30%;
@@ -378,6 +698,15 @@ a,p,h1,h2,h3,h4,h5,h6,li,button,input{
         justify-content: center;
         font-size: 1.5rem;
         color: #fff;
+        @media (max-width: 991px) {
+            font-size: 1.2rem;
+            }
+        @media (max-width: 768px) {
+            font-size: 1rem;
+            }
+        @media (max-width: 481px) {
+            width: 80%;
+            }
     }
 }
 
